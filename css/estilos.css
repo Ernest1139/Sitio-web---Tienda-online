@@ -258,12 +258,23 @@ h3 {
     background-color: rgb(40, 162, 233);
     padding: .8em;
     border-radius: .3em;
+    border: none;
 }
 
 .boton-comprar:hover {
     background-color: rgb(245, 245, 81);
     color: black;
     cursor: pointer;
+}
+
+.boton-comprar:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 768px){
+    .boton-comprar {
+        margin-bottom: 1.5rem;
+    }
 }
 
 .producto p {

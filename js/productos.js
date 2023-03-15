@@ -1,17 +1,17 @@
  // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-import { getDatabase, onValue, ref, set, child, get, update, remove} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-import { getStorage,ref as refStorage, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+import { getDatabase, onValue, ref, set, child, get, update, remove} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+import { getStorage,ref as refStorage, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-storage.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCZIX9wlPLLRh5K5qk_g961Mh2Fz2ddDLM",
-    authDomain: "dbweb-da9ef.firebaseapp.com",
-    databaseURL: "https://dbweb-da9ef-default-rtdb.firebaseio.com",
-    projectId: "dbweb-da9ef",
-    storageBucket: "dbweb-da9ef.appspot.com",
-    messagingSenderId: "1020692243373",
-    appId: "1:1020692243373:web:aadb3d3a5adec49e0b7724",
-    measurementId: "G-VZMNHGVF0F"
+    apiKey: "AIzaSyDuBvUNIV-BYvchsUty4spFt_wiXfTOvrw",
+    authDomain: "proyecto-web---thompson.firebaseapp.com",
+    databaseURL: "https://proyecto-web---thompson-default-rtdb.firebaseio.com/",
+    projectId: "proyecto-web---thompson",
+    storageBucket: "proyecto-web---thompson.appspot.com",
+    messagingSenderId: "682750582027",
+    appId: "1:682750582027:web:eda07890e30d60a065960e",
+    measurementId: "G-6DVLX3T6FC"
 };
 
   // Initialize Firebase
@@ -39,7 +39,7 @@ function mostrarProductos(){
             "<p class='nombre'>"+childData.nombre +"</p>"+
             "<p class='descripcion' style='font-size: .9em;'> "+childData.descripcion +"</p>"+
             "<p class='precio'>$"+childData.precio +"</p>"+
-            "<a class='boton-comprar'>Comprar</a>"+
+            "<button class='boton-comprar'>Comprar</button>"+
             "</div>";
         }
         
