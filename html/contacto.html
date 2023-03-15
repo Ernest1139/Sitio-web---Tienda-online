@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header id="encabezado">
+        <h1>Contacto</h1>
+    </header>
+
+    <div id="nav-bg">
+        <nav class="navegacion contenedor-nav">
+            <a href="/index.html">Inicio</a>
+            <a href="/html/empresa.html">Empresa</a>
+            <a href="/html/productos.html">Productos</a>
+            <a href="/html/contacto.html">Contacto</a>
+        </nav>
+    </div>
+    
+    <section id="hero">
+        <div id="contenido-hero">
+            <h2>NetoTech</h2>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="88" height="88" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFC107" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <circle cx="12" cy="11" r="3" />
+            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+            </svg>
+            <p style="font-size: 1.2em;">Mazatlán, Sinaloa</p>
+        </div>
+
+    </section>
+
+    <section id="contenedor-formulario">
+        <h3>Contacto</h3>
+        
+        <form id="formulario">
+            <fieldset>
+                <legend>Contactanos</legend>
+                
+                <div id="contenedor-campos">
+                    <div class="campo">
+                        <label>Nombre</label>
+                        <input class="input-text" type="text" placeholder="Nombre" required>
+                    </div>
+                    <div class="campo">
+                        <label>Correo</label>
+                        <br>
+                        <input class="input-text" type="email" placeholder="Email" required>
+                    </div>
+                    <div class="campo">
+                        <label>Celular</label>
+                        <br>
+                        <input class="input-text" type="text" placeholder="Celular" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    </div>
+                    <div class="campo">
+                        <label>Direccion</label>
+                        <br>
+                        <input class="input-text" type="text" placeholder="Direccion" required>
+                    </div>
+                    <div class="campo">
+                        <label>Sexo</label>
+                        <br>
+                        <label style="font-size: 1em;" for="Masculino">Masculino</label>
+                        <input type="radio" id="masculino" name="sexo">
+                        <label style="font-size: 1em; margin-left: 1em;" for="Femenino">Femenino</label>
+                        <input type="radio" id="Femenino" name="sexo">
+                    </div>
+                    <div class="campo">
+                        <label>Comentarios</label>
+                        <br>
+                        <textarea class="input-text" required></textarea>
+                    </div>
+                </div>
+                    
+                <div id="contenedor-botones">
+                        <input class="boton" type="reset" value="Limpiar">
+                        <input class="boton" type="submit" value="Enviar">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <footer id="pie">
+        <p>© 2022, Ernesto Galindo. Todos los derechos Reservados</p>
+    </footer>
+
+</body>
+</html>

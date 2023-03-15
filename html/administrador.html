@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+
+    <header id="encabezado">
+        <h1>NetoTech</h1>
+    </header>
+
+    <div id="nav-bg">
+        <nav class="navegacion contenedor-nav" style="justify-content: space-between;">
+            <a href="#">Neto Tech - Administrador</a>
+            <a id="btnCerrarSesion" style="cursor: pointer;">Cerrar Sesión</a>
+        </nav>
+    </div>
+
+    <section id="hero">
+        <div id="contenido-hero">
+            <h2>NetoTech</h2>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="88" height="88" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFC107" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <circle cx="12" cy="11" r="3" />
+            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+            </svg>
+            <p style="font-size: 1.2em;">Mazatlán, Sinaloa</p>
+        </div>
+
+    </section>
+    
+    <section id="contenido-administrador">
+        <h3>Administrador</h3>
+
+        <form action="" id="formulario-administrador">
+            <fieldset>
+                <div class="campoAdmin">
+                    <label>Código:</label>
+                    <br>
+                    <input type="text" placeholder="Código" id="codigo">
+                </div>
+
+                <div class="campoAdmin">
+                    <label>Precio:</label>
+                    <br>
+                    <input type="number" placeholder="Introduzca un precio" id="precio">
+                </div>
+
+                <div class="campoAdmin">
+                    <label>Nombre del Producto:</label>
+                    <br>
+                    <input type="text" placeholder="Introduzca el nombre del producto" id="nombre">
+                </div>
+
+                <div class="campoAdmin">
+                    <label>Descripcion:</label>
+                    <br>
+                    <textarea class="input-text" id="descripcion"></textarea>
+                </div>
+
+                <div class="campoAdmin">
+                    <label>URL de imagen:</label>
+                    <br>
+                    <input type="text" id="url" readonly>
+                </div>
+
+                <div class="campoAdmin" style="margin: 1em 0;">
+                    <label>Estatus:</label>
+                        <select name="" id="estatus" class="form-select">
+                        <option value="" selected>Selecciona una opción</option>
+                        <option value="0">Activo</option>
+                        <option value="1">Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="campoAdmin">
+                    <div class="imagenPreview" id="imagenContainer">
+                        <img id="imgPreview" src="#" height="200" class="none" alt="Imagen introducida" />
+                    </div>
+                    <label>Imagen:</label>
+                    <div class="input-image">
+                        <label for="imagen" class="input-file">
+                            <input type="file" class="none" name="imagen" id="imagen" accept="image/*" />
+                            Seleccione un archivo
+                        </label>
+                        <div class="input-name" id="imagenName">No se han seleccionado archivos</div>
+                    </div>
+        
+                </div>
+
+            </fieldset>
+
+            <div id="botones">
+                <button id="btnAgregar">Agregar</button>
+                <button id="btnConsultar">Consultar</button>
+                <button id="btnActualizar">Actualizar</button>
+                <button id="btnDeshabilitar">Deshabilitar</button>
+                <button id="btnMostrar">Mostrar Registros</button>
+                <button type="reset" id="btnLimpiar">Limpiar</button>
+            </div>
+
+        </form>
+
+        <center>
+        <table id="productos" class="table" border="1">
+
+        </table>
+        </center>
+
+    </section>
+
+    <footer id="pie">
+        <p>© 2022, Ernesto Galindo. Todos los derechos Reservados</p>
+    </footer>
+
+    <script src="/js/app.js" type="module"></script>
+    <script src="/js/login.js" type="module"></script>
+
+</body>
+</html>
