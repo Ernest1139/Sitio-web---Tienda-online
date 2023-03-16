@@ -1,43 +1,13 @@
-let slideIndex = 1;
-showSlides(slideIndex);
+const slider = document.querySelector('.slider');
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+// Clonar las imágenes para crear un efecto infinito
+const firstImg = slider.firstElementChild.cloneNode(true);
+const secondImg = slider.firstElementChild.nextElementSibling.cloneNode(true);
+const lastImg = slider.lastElementChild.cloneNode(true);
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+slider.appendChild(firstImg);
+slider.insertBefore(lastImg, slider.firstElementChild);
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("demo");
-  let captionText = document.getElementById("caption");
-  showSlides2();
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
-function showSlides2() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
+// Ajustar el ancho del slider después de clonar las imágenes
+const sliderWidth = slider.childElementCount * 25;
+slider.style.width = `${sliderWidth}%`;
