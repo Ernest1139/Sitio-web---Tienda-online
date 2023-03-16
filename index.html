@@ -42,42 +42,80 @@
             <section>
                 <h3>Ofertas</h3>
 
-                <div id="contenido-ofertas">
-                    <div class="ofertas">
-                        <picture>
-                            <img class="imagenes-ofertas" src="/img/tarjetaVideo.jpg" alt="tarjetaVideo">
-                        </picture>
-                        <p>Tarjeta de Video 1650 Super <br><span>$5,500.00</span></p>
-                        <a href="#">Comprar Ahora</a>
-                    </div>
+                
+                    <!-- Container for the image gallery -->
+                    <div class="container" >
 
-                    <div class="ofertas">
-                        <picture>
-                            <img class="imagenes-ofertas" src="/img/tarjetaVideo2.jpg" alt="tarjetaVideo">
-                        </picture>
-                        <p>Tarjeta de Video 1660 Super <br><span>$6,500.00</span></p>
-                        <a href="#">Comprar Ahora</a>
-                    </div>
+                        <div class="container-mySlides" >
+                            <!-- Full-width images with number text -->
+                            <div class="mySlides" >
+                                <div class="numbertext">1 / 6</div>
+                                <img src="/img/Prueba.png">
+                            </div>
+                        
+                            <div class="mySlides">
+                                <div class="numbertext">2 / 6</div>
+                                <img src="/img/Prueba2.png">
+                            </div>
+                        
+                            <div class="mySlides">
+                                <div class="numbertext">3 / 6</div>
+                                <img src="/img/Prueba.png">
+                            </div>
+                        
+                            <div class="mySlides">
+                                <div class="numbertext">4 / 6</div>
+                                <img src="/img/Prueba2.png">
+                            </div>
+                        
+                            <div class="mySlides">
+                                <div class="numbertext">5 / 6</div>
+                                <img src="/img/Prueba.png">
+                            </div>
+                        
+                            <div class="mySlides">
+                                <div class="numbertext">6 / 6</div>
+                                <img src="/img/Prueba2.png">
+                            </div>
+                    
+                        </div>
 
-                    <div class="ofertas">
-                        <picture>
-                            <img class="imagenes-ofertas" src="/img/procesador.jpg" alt="tarjetaVideo">
-                        </picture>
-                        <p>Procesador Ryzen 5 3600 <br><span>$4,200.00</span></p>
-                        <a href="#">Comprar Ahora</a>
-                    </div>
-
-                    <div class="ofertas">
-                        <picture>
-                            <img class="imagenes-ofertas" src="/img/gabinete.jpg" alt="tarjetaVideo">
-                        </picture>
-                        <p>Gabinete MUNFROST Panda <br><span>$1,200.00</span></p>
-                        <a href="#">Comprar Ahora</a>
+                        <!-- Next and previous buttons -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    
+                        <!-- Image text -->
+                        <div class="caption-container">
+                        <p id="caption"></p>
+                        </div>
+                    
+                        <!-- Thumbnail images -->
+                        <div class="row">
+                        <div class="column">
+                            <img class="demo cursor" src="/img/Prueba.png" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="/img/Prueba2.png" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="/img/Prueba.png" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="/img/Prueba2.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="/img/Prueba.png" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="/img/Prueba2.png" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                        </div>
+                        </div>
                     </div>
                     
-                </div>
+                
 
             </section>
+            
         </div>
 
         <footer id="pie">
@@ -85,4 +123,6 @@
         </footer>
 
 </body>
+
+<script src="/js/carrusel.js"></script>
 </html>
