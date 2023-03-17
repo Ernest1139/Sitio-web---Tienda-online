@@ -283,6 +283,7 @@ onAuthStateChanged(auth, async user => {
 });
 
 
+
 btnInsertar.addEventListener("click", insertar);
 archivo.addEventListener("change", obtenerUrl);
 btnConsultar.addEventListener('click', mostrarProducto);
