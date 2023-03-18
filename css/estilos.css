@@ -15,13 +15,13 @@ input[type=number]::-webkit-inner-spin-button {
 
 }
 
-h1 {
+/* h1 {
     margin: .6em 0;
     text-align: center;
     font-size: 3em;
     font-weight: bold;
     color: #fff;
-}
+} */
 
 h2 {
     font-size: 2.8em;
@@ -35,8 +35,42 @@ h3 {
 }
 
 #encabezado {
-    padding: .1em;
     background-color: rgb(72, 79, 163);
+    height: 2.6rem;
+}
+
+#encabezado ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#encabezado li {
+    font-size: 1.2rem;
+    color: #fff;
+    padding: .5rem;
+}
+
+#encabezado i {
+    color: #fff;
+}
+
+#ayuda {
+    margin-left: 1rem;
+    background-color: rgb(69, 69, 69);
+}
+
+#ayuda a {
+    text-decoration: none;
+    color: #fff;
+    /* background-color: black;
+    padding: .3rem;
+    border-radius: .5rem; */
+}
+
+#ayuda:hover {
+    background-color: rgb(93, 93, 93);
 }
 
 #nav-bg {
@@ -55,23 +89,6 @@ h3 {
     color: white;
     font-size: 1.6em;
     font-weight: bold;
-}
-
-.navegacion a:hover {
-    background-color: rgb(245, 245, 81);
-    color: black;
-}
-
-.contenedor-nav {
-    max-width: 50em;
-    margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-    .navegacion {
-        flex-direction: row;
-        justify-content: space-between;
-    }
 }
 
 #hero {
@@ -103,7 +120,7 @@ h3 {
 
 .carousel-item img{
     width: 100%;
-    height: 25rem;
+    height: 30rem;
 }
 
 .carousel-item p {
