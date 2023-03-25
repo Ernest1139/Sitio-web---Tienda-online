@@ -43,6 +43,11 @@ h3 {
     height: 2.6rem;
 }
 
+#encabezado-login {
+    background-color: rgb(72, 79, 163);
+    height: 4rem;
+}
+
 #encabezado ul {
     list-style: none;
     display: flex;
@@ -75,6 +80,14 @@ h3 {
 
 #ayuda:hover {
     background-color: rgb(93, 93, 93);
+}
+
+#encabezado-login h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.2rem;
 }
 
 @media (max-width: 512px) { 
