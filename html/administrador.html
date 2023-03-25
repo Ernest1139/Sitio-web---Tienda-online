@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
@@ -70,18 +69,26 @@
                     <input type="text" id="url" readonly>
                 </div>
 
-                <div class="campoAdmin" style="margin: 1em 0;">
+                <div class="campoAdmin">
+                    <label>Cantidad:</label>
+                    <br>
+                    <input type="number" placeholder="Introduzca un precio" id="cantidad">
+                </div>
+
+                <div class="campoAdmin">
                     <label>Estatus:</label>
-                        <select name="" id="estatus" class="form-select">
+                    <br>
+                    <select id="estatus" class="form-select">
                         <option value="" selected disabled>Selecciona una opción</option>
                         <option value="0">Inactivo</option>
                         <option value="1">Activo</option>
                     </select>
                 </div>
 
-                <div class="campoAdmin" style="margin: 1em 0;">
+                <div class="campoAdmin">
                     <label>Categoria:</label>
-                        <select name="" id="categoria" class="form-select">
+                    <br>
+                    <select id="categoria" class="form-select">
                         <option value="0" selected disabled>Selecciona una opción</option>
                         <option value="1">Tarjetas Graficas</option>
                         <option value="2">Gabinetes</option>
