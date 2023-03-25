@@ -42,6 +42,7 @@ var nombre = "";
 var descripcion = "";
 var urlImagen = "";
 var estatus = 1;
+var cantidad = 0;
 var categoria = 0;
 var nombreImagen = "";
 
@@ -49,7 +50,7 @@ function insertar() {
     event.preventDefault();
     leer();
     const dbref = ref(db);
-    if(nombre=="" || descripcion == "" || codigo =="" || precio =="" || urlImagen=="" || estatus=="" || categoria ==0){
+    if(nombre == "" || descripcion == "" || codigo == "" || precio == "" || urlImagen == "" || estatus == "" || categoria == 0 || cantidad == 0){
         alert("Complete los campos");
     }else{
       //Validación para que no se repita el producto
@@ -64,6 +65,7 @@ function insertar() {
             precio:precio,
             descripcion:descripcion,
             estatus:estatus,
+            cantidad:cantidad,
             categoria:categoria,
             urlImagen:urlImagen})
             .then(() => {
@@ -84,13 +86,14 @@ function insertar() {
 function modificar() {
     event.preventDefault();
     leer();
-    if(nombre=="" || descripcion == "" || codigo =="" || precio =="" || urlImagen=="" || estatus=="" || categoria==0){
+    if(nombre == "" || descripcion == "" || codigo == "" || precio == "" || urlImagen == "" || estatus == "" || categoria == 0 || cantidad == 0){
         alert("Complete los campos");
     }else {
         update(ref(db, "productos/" + codigo), {
         nombre:nombre,
         precio:precio,
         descripcion:descripcion,
+        cantidad:cantidad,
         estatus:estatus,
         categoria:categoria,
         urlImagen:urlImagen,
@@ -119,6 +122,7 @@ function mostrarProducto() {
             nombre = snapshot.val().nombre;
             precio = snapshot.val().precio;
             descripcion = snapshot.val().descripcion;
+            cantidad = snapshot.val().cantidad;
             estatus = snapshot.val().estatus;
             categoria = snapshot.val().categoria;
             urlImagen = snapshot.val().urlImagen;
@@ -215,7 +219,8 @@ function mostrarProductos(){
 					<th scope="col" width="15%"">Precio</th>
 					<th scope="col" width="30%"">Descripcion</th>
 					<th scope="col" width="15%"">Imagen</th>
-                    <th scope="col" width="10%"">Categoria</th>
+                    <th scope="col" width="5%"">Cantidad</th>
+                    <th scope="col" width="5%"">Estatus</th>
                     <th scope="col" width="10%"">Categoria</th>
 				</tr></thead><tbody></tbody>`;
 onValue(dbRef,(snapshot) => {
@@ -224,18 +229,28 @@ onValue(dbRef,(snapshot) => {
         const childKey = childSnapshot.key;
         const childData = childSnapshot.val();
         let categoriaTexto = '';
+        let estatusTexto = '';
 
-        if (childData.categoria == 1) {
+        // convertir valor de categoria a texto
+        if(childData.categoria == 1) {
             categoriaTexto = 'Tarjetas Graficas';
-        } else if (childData.categoria == 2) {
+        }else if (childData.categoria == 2) {
             categoriaTexto = 'Gabinetes';
-        } else if((childData.categoria == 3)) {
+        }else if((childData.categoria == 3)) {
             categoriaTexto = 'Procesadores';
-        } else if(((childData.categoria == 4))) {
+        }else if(((childData.categoria == 4))) {
             categoriaTexto = 'Tarjetas Madre';
-        } else if(((childData.categoria == 5))) {
+        }else if(((childData.categoria == 5))) {
             categoriaTexto = 'Memorias RAM';
         }
+
+        // convertir valor de estatus a texto
+        if(childData.estatus == 0) {
+            estatusTexto = 'Inactivo';
+        }else if(childData.estatus == 1) {
+            estatusTexto = 'Activo'
+        }
+
 
         productos.lastElementChild.innerHTML += `<tr>
 						<th class="text-center" scope="row">${childKey}</th>
@@ -243,7 +258,8 @@ onValue(dbRef,(snapshot) => {
 						<td class="text-center">${childData.precio}</td>
 						<td class="text-center">${childData.descripcion}</td>
 						<td class="text-center"><img class="imgModificar" src="${childData.urlImagen}" alt="Imagen de ${childData.nombre}"/></td>
-                        <td class="text-center">${childData.estatus}</td>
+                        <td class="text-center">${childData.cantidad}</td>
+                        <td class="text-center">${estatusTexto}</td>
                         <td class="text-center">${categoriaTexto}</td>
 					</tr>`;
     });
@@ -261,6 +277,7 @@ function leer() {
     descripcion = document.getElementById("descripcion").value;
     codigo = document.getElementById('codigo').value;
     urlImagen = document.getElementById('url').value;
+    cantidad = document.getElementById('cantidad').value;
     estatus = document.getElementById('estatus').value;
     categoria = document.getElementById('categoria').value;
 }
@@ -273,6 +290,7 @@ function escribirInputs(){
     document.getElementById('url').value = urlImagen;
     document.getElementById('imgPreview').src=document.getElementById('url').value;
     document.getElementById('imgPreview').classList.remove('none');
+    document.getElementById('cantidad').value=cantidad;
     document.getElementById('estatus').value=estatus;
     document.getElementById('categoria').value=categoria;
 } 
@@ -286,6 +304,7 @@ function limpiar(){
     document.getElementById('codigo').value = "";
     document.getElementById('url').value = "";
     document.getElementById('imgPreview').src =""; 
+    document.getElementById('cantidad').value="";
     document.getElementById('estatus').value="";
     document.getElementById('categoria').value=0;
     document.getElementById('imgPreview').classList.add('none');
