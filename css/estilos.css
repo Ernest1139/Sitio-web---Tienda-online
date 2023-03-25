@@ -46,6 +46,7 @@ h3 {
 #encabezado-login {
     background-color: rgb(72, 79, 163);
     height: 4rem;
+    margin-bottom: 5%;
 }
 
 #encabezado ul {
@@ -1139,10 +1140,4 @@ footer {
     text-transform: uppercase;
     color: rgb(245, 245, 245);
     border-radius: .5em;
-}
-
-#btnIniciarSesion:hover {
-    color: black;
-    background-color: yellow;
-    cursor: pointer;
 }
