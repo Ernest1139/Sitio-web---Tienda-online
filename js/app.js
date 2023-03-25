@@ -30,7 +30,7 @@ const auth = getAuth(app);
 // Declaración de objetos
 var btnInsertar = document.getElementById("btnAgregar");
 var btnConsultar = document.getElementById("btnConsultar");
-var btnActualizar = document.getElementById("btnActualizar");
+var btnModificar = document.getElementById("btnModificar");
 var btnDeshabilitar = document.getElementById("btnDeshabilitar");
 var btnLimpiar = document.getElementById("btnLimpiar");
 var btnMostrar = document.getElementById("btnMostrar");
@@ -41,14 +41,15 @@ var precio = "";
 var nombre = "";
 var descripcion = "";
 var urlImagen = "";
-var estatus = 0;
+var estatus = 1;
+var categoria = 0;
 var nombreImagen = "";
 
 function insertar() {
     event.preventDefault();
     leer();
     const dbref = ref(db);
-    if(nombre=="" || descripcion == "" || codigo =="" || precio =="" || urlImagen=="" || estatus==""){
+    if(nombre=="" || descripcion == "" || codigo =="" || precio =="" || urlImagen=="" || estatus=="" || categoria ==0){
         alert("Complete los campos");
     }else{
       //Validación para que no se repita el producto
@@ -63,6 +64,7 @@ function insertar() {
             precio:precio,
             descripcion:descripcion,
             estatus:estatus,
+            categoria:categoria,
             urlImagen:urlImagen})
             .then(() => {
                 alert("Producto añadido");
@@ -79,10 +81,10 @@ function insertar() {
     }
 }
 
-function actualizar() {
+function modificar() {
     event.preventDefault();
     leer();
-    if(nombre=="" || descripcion == "" || codigo =="" || precio =="" || urlImagen=="" || estatus==""){
+    if(nombre=="" || descripcion == "" || codigo =="" || precio =="" || urlImagen=="" || estatus=="" || categoria==0){
         alert("Complete los campos");
     }else {
         update(ref(db, "productos/" + codigo), {
@@ -90,14 +92,15 @@ function actualizar() {
         precio:precio,
         descripcion:descripcion,
         estatus:estatus,
+        categoria:categoria,
         urlImagen:urlImagen,
     })
         .then(() => {
-            alert("El registro se actualizó");
+            alert("El registro se modifico");
         mostrarProductos();
         })
         .catch((error) => {
-            alert("No se pudo actualizar -> " + error);
+            alert("No se pudo modificar -> " + error);
         });
     }
 }
@@ -117,6 +120,7 @@ function mostrarProducto() {
             precio = snapshot.val().precio;
             descripcion = snapshot.val().descripcion;
             estatus = snapshot.val().estatus;
+            categoria = snapshot.val().categoria;
             urlImagen = snapshot.val().urlImagen;
             escribirInputs();
         } else {
@@ -136,7 +140,7 @@ function deshabilitar() {
         alert("Introduce un código");
     }else {
         update(ref(db, "productos/" + codigo), {
-        estatus:1
+        estatus:0
     })
     .then(() => {
         alert("El Producto ha sido deshabilitado");
@@ -211,13 +215,27 @@ function mostrarProductos(){
 					<th scope="col" width="15%"">Precio</th>
 					<th scope="col" width="30%"">Descripcion</th>
 					<th scope="col" width="15%"">Imagen</th>
-                    <th scope="col" width="20%"">estatus</th>
+                    <th scope="col" width="10%"">Categoria</th>
+                    <th scope="col" width="10%"">Categoria</th>
 				</tr></thead><tbody></tbody>`;
 onValue(dbRef,(snapshot) => {
 
     snapshot.forEach((childSnapshot) => {
         const childKey = childSnapshot.key;
         const childData = childSnapshot.val();
+        let categoriaTexto = '';
+
+        if (childData.categoria == 1) {
+            categoriaTexto = 'Tarjetas Graficas';
+        } else if (childData.categoria == 2) {
+            categoriaTexto = 'Gabinetes';
+        } else if((childData.categoria == 3)) {
+            categoriaTexto = 'Procesadores';
+        } else if(((childData.categoria == 4))) {
+            categoriaTexto = 'Tarjetas Madre';
+        } else if(((childData.categoria == 5))) {
+            categoriaTexto = 'Memorias RAM';
+        }
 
         productos.lastElementChild.innerHTML += `<tr>
 						<th class="text-center" scope="row">${childKey}</th>
@@ -225,7 +243,8 @@ onValue(dbRef,(snapshot) => {
 						<td class="text-center">${childData.precio}</td>
 						<td class="text-center">${childData.descripcion}</td>
 						<td class="text-center"><img class="imgModificar" src="${childData.urlImagen}" alt="Imagen de ${childData.nombre}"/></td>
-            <td class="text-center">${childData.estatus}</td>
+                        <td class="text-center">${childData.estatus}</td>
+                        <td class="text-center">${categoriaTexto}</td>
 					</tr>`;
     });
     },
@@ -243,6 +262,7 @@ function leer() {
     codigo = document.getElementById('codigo').value;
     urlImagen = document.getElementById('url').value;
     estatus = document.getElementById('estatus').value;
+    categoria = document.getElementById('categoria').value;
 }
 
 function escribirInputs(){
@@ -254,6 +274,7 @@ function escribirInputs(){
     document.getElementById('imgPreview').src=document.getElementById('url').value;
     document.getElementById('imgPreview').classList.remove('none');
     document.getElementById('estatus').value=estatus;
+    document.getElementById('categoria').value=categoria;
 } 
 
 // Limpiar imagen
@@ -266,6 +287,7 @@ function limpiar(){
     document.getElementById('url').value = "";
     document.getElementById('imgPreview').src =""; 
     document.getElementById('estatus').value="";
+    document.getElementById('categoria').value=0;
     document.getElementById('imgPreview').classList.add('none');
 }
 
@@ -289,5 +311,5 @@ archivo.addEventListener("change", obtenerUrl);
 btnConsultar.addEventListener('click', mostrarProducto);
 btnLimpiar.addEventListener('click', limpiar);
 btnDeshabilitar.addEventListener('click', deshabilitar);
-btnActualizar.addEventListener('click',actualizar);
+btnModificar.addEventListener('click', modificar);
 btnMostrar.addEventListener('click', mostrarProductos);

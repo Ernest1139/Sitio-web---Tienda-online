@@ -79,8 +79,15 @@ h3 {
 
 .navegacion {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .navegacion {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 .navegacion a {
@@ -89,6 +96,20 @@ h3 {
     color: white;
     font-size: 1.6em;
     font-weight: bold;
+}
+
+.navegacion a:hover {
+    background-color: rgb(245, 245, 81);
+    color: black;
+}
+
+#btnCerrarSesion {
+    color: #fff;
+}
+
+#btnCerrarSesion:hover {
+    cursor: pointer;
+    color: black;
 }
 
 #hero {
@@ -772,6 +793,10 @@ footer {
     grid-column: 1 / 3;
 }
 
+.campoAdmin:nth-child(7) {
+    grid-column: 1 / 3;
+}
+
 #botones {
     margin-top: 2em;
     display: flex;
@@ -793,7 +818,7 @@ footer {
         margin: 1em 0;
     }
 
-    #btnActualizar {
+    #btnModificar {
         margin: 1em 0;
     }
 
@@ -832,7 +857,7 @@ footer {
     border-radius: .2em;
 }
 
-#btnActualizar {
+#btnModificar {
     padding: 1em;
     border: none;
     background-color: rgb(40, 162, 233);
@@ -888,7 +913,7 @@ footer {
     cursor: pointer;
 }
 
-#btnActualizar:hover {
+#btnModificar:hover {
     color: black;
     background-color: yellow;
     cursor: pointer;

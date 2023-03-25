@@ -14,14 +14,10 @@
 </head>
 <body>
 
-    <header id="encabezado">
-        <h1>NetoTech</h1>
-    </header>
-
     <div id="nav-bg">
         <nav class="navegacion contenedor-nav" style="justify-content: space-between;">
             <a href="#">Neto Tech - Administrador</a>
-            <a id="btnCerrarSesion" style="cursor: pointer;">Cerrar Sesión</a>
+            <a id="btnCerrarSesion">Cerrar Sesión</a>
         </nav>
     </div>
 
@@ -42,7 +38,7 @@
     <section id="contenido-administrador">
         <h3>Administrador</h3>
 
-        <form action="" id="formulario-administrador">
+        <form id="formulario-administrador">
             <fieldset>
                 <div class="campoAdmin">
                     <label>Código:</label>
@@ -77,9 +73,21 @@
                 <div class="campoAdmin" style="margin: 1em 0;">
                     <label>Estatus:</label>
                         <select name="" id="estatus" class="form-select">
-                        <option value="" selected>Selecciona una opción</option>
-                        <option value="0">Activo</option>
-                        <option value="1">Inactivo</option>
+                        <option value="" selected disabled>Selecciona una opción</option>
+                        <option value="0">Inactivo</option>
+                        <option value="1">Activo</option>
+                    </select>
+                </div>
+
+                <div class="campoAdmin" style="margin: 1em 0;">
+                    <label>Categoria:</label>
+                        <select name="" id="categoria" class="form-select">
+                        <option value="0" selected disabled>Selecciona una opción</option>
+                        <option value="1">Tarjetas Graficas</option>
+                        <option value="2">Gabinetes</option>
+                        <option value="3">Procesadores</option>
+                        <option value="4">Tarjetas Madre</option>
+                        <option value="5">Memorias RAM</option>
                     </select>
                 </div>
 
@@ -103,7 +111,7 @@
             <div id="botones">
                 <button id="btnAgregar">Agregar</button>
                 <button id="btnConsultar">Consultar</button>
-                <button id="btnActualizar">Actualizar</button>
+                <button id="btnModificar">Modificar</button>
                 <button id="btnDeshabilitar">Deshabilitar</button>
                 <button id="btnMostrar">Mostrar Registros</button>
                 <button type="reset" id="btnLimpiar">Limpiar</button>
