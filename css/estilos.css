@@ -1205,12 +1205,6 @@ footer {
     border-radius: .5em;
 }
 
-#btnIniciarSesion:hover {
-    color: black;
-    background-color: yellow;
-    cursor: pointer;
-}
-
 .dropdown-menu a {
     cursor: pointer;
 }
