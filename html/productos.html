@@ -58,20 +58,10 @@
             <a class="nav-link" href="/html/empresa.html">Empresa</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" href="/html/productos.html">Productos</a>
+            <a class="nav-link active" href="/html/productos.html" id="nv-productos">Productos</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/html/contacto.html">Contacto</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categorias
-                </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
             </li>
         </ul>
         </div>
@@ -94,6 +84,22 @@
 
     <section id="productos">
         <h3>Nuestros Productos</h3>
+
+        <li class="dropdown" id="categorias">
+            <a class="dropdown-toggle"role="button" data-bs-toggle="dropdown" aria-expanded="false" id="categorias__texto">
+                Categorias
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" id="todos">Todos Los Productos</a></li>
+                <li><a class="dropdown-item" id="tarjetasGraficas">Tarjetas Graficas</a></li>
+                <li><a class="dropdown-item" id="gabinetes">Gabinetes</a></li>
+                <li><a class="dropdown-item" id="procesadores">Procesadores</a></li>
+                <li><a class="dropdown-item" id="tarjetasMadre">Tarjetas Madre</a></li>
+                <li><a class="dropdown-item"id="memoriasRAM">Memorias RAM</a></li>
+            </ul>
+        </li>
+
+        <h4 id="tituloProductos">Nuestros Productos</h4>
 
         <div id="contenido-productos">
             
@@ -133,7 +139,7 @@
     
         </div>
     
-      </footer>
+    </footer>
     
     <script src="/js/productos.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

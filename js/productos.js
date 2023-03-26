@@ -21,10 +21,17 @@ const storage = getStorage();
 
 // Generar Productos
 let productos = document.getElementById('contenido-productos');
-window.addEventListener('DOMContentLoaded',mostrarProductos)
+window.addEventListener('DOMContentLoaded',mostrarProductos);
+let tarjetaG = document.getElementById('tarjetasGraficas');
+let gabinete = document.getElementById('gabinetes');
+let proc = document.getElementById('procesadores');
+let tarjetaM = document.getElementById('tarjetasMadre');
+let memoria = document.getElementById('memoriasRAM');
+let todos = document.getElementById('todos');
 
 function mostrarProductos(){
     const dbRef = ref(db, "productos");
+
 
     onValue(dbRef,(snapshot) => {
         productos.innerHTML = "";
@@ -33,15 +40,17 @@ function mostrarProductos(){
             const childData = childSnapshot.val();
         
         if(childData.estatus=="1"){
-            productos.innerHTML +=
-            "<div class="+"'producto'"+"> " +
-            "<img class='img-item' src="+" "+childData.urlImagen+" "+"> " +
-            "<p class='nombre'>"+childData.nombre +"</p>"+
-            "<p class='descripcion' style='font-size: .9em;'> "+childData.descripcion +"</p>"+
-            "<p class='cantidad'>" +'Cantidad: '+childData.cantidad +"</p>"+
-            "<p class='precio'>$"+childData.precio +"</p>"+
-            "<button class='boton-comprar'>Comprar</button>"+
-            "</div>";
+
+            productos.innerHTML +=`
+                <div class='producto'>
+                <img class='img-item' src='${childData.urlImagen}'>
+                <p class='nombre'>${childData.nombre}</p>
+                <p class='descripcion' style='font-size: .9em;'>${childData.descripcion}</p>
+                <p class='cantidad'>Cantidad: ${childData.cantidad}</p>
+                <p class='precio'>\$${childData.precio}</p>
+                <button class='boton-comprar'>Comprar</button>
+                </div>
+            `;
         }
         
         });
@@ -51,3 +60,226 @@ function mostrarProductos(){
     }
     );
 }
+
+
+
+
+function mostrarTarjetasGraficas(){
+    const dbRef = ref(db, "productos");
+    
+    document.getElementById('tituloProductos').innerHTML = "Tarjetas Graficas";
+    onValue(dbRef,(snapshot) => {
+        productos.innerHTML = "";
+        snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+            
+            
+            if(childData.categoria==1){
+                productos.innerHTML +=`
+                    <div class='producto'>
+                    <img class='img-item' src='${childData.urlImagen}'>
+                    <p class='nombre'>${childData.nombre}</p>
+                    <p class='descripcion' style='font-size: .9em;'>${childData.descripcion}</p>
+                    <p class='cantidad'>Cantidad: ${childData.cantidad}</p>
+                    <p class='precio'>\$${childData.precio}</p>
+                    <button class='boton-comprar'>Comprar</button>
+                    </div>
+                `;
+                
+            }
+            
+            
+        });
+    },
+    
+    {
+        onlyOnce: true,
+    }
+    );
+} 
+
+
+function mostrarGabinetes(){
+    const dbRef = ref(db, "productos");
+    
+    document.getElementById('tituloProductos').innerHTML = "Gabinetes";
+
+    onValue(dbRef,(snapshot) => {
+        productos.innerHTML = "";
+            snapshot.forEach((childSnapshot) => {
+                const childData = childSnapshot.val();
+                
+                
+                if(childData.categoria==2){
+                    productos.innerHTML +=`
+                        <div class='producto'>
+                        <img class='img-item' src='${childData.urlImagen}'>
+                        <p class='nombre'>${childData.nombre}</p>
+                        <p class='descripcion' style='font-size: .9em;'>${childData.descripcion}</p>
+                        <p class='cantidad'>Cantidad: ${childData.cantidad}</p>
+                        <p class='precio'>\$${childData.precio}</p>
+                        <button class='boton-comprar'>Comprar</button>
+                        </div>
+                    `;
+                    
+                }
+                
+                
+            });
+    },
+    
+    {
+        onlyOnce: true,
+    }
+    );
+    
+} 
+
+function mostrarProcesadores(){
+    const dbRef = ref(db, "productos");
+    
+    document.getElementById('tituloProductos').innerHTML = "Procesadores";
+    
+    onValue(dbRef,(snapshot) => {
+        productos.innerHTML = "";
+        snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+            
+
+                if(childData.categoria==3){
+                    productos.innerHTML +=`
+                        <div class='producto'>
+                        <img class='img-item' src='${childData.urlImagen}'>
+                        <p class='nombre'>${childData.nombre}</p>
+                        <p class='descripcion' style='font-size: .9em;'>${childData.descripcion}</p>
+                        <p class='cantidad'>Cantidad: ${childData.cantidad}</p>
+                        <p class='precio'>\$${childData.precio}</p>
+                        <button class='boton-comprar'>Comprar</button>
+                        </div>
+                    `;
+                    
+                }
+                
+                
+            });
+        },
+        
+        {
+            onlyOnce: true,
+        }
+        );
+        
+    } 
+
+function mostrarTarjetasMadre(){
+    const dbRef = ref(db, "productos");
+
+    document.getElementById('tituloProductos').innerHTML = "Tarjetas Madre";
+    
+    onValue(dbRef,(snapshot) => {
+        productos.innerHTML = "";
+        snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+            
+            
+            if(childData.categoria==4){
+                productos.innerHTML +=`
+                    <div class='producto'>
+                    <img class='img-item' src='${childData.urlImagen}'>
+                    <p class='nombre'>${childData.nombre}</p>
+                    <p class='descripcion' style='font-size: .9em;'>${childData.descripcion}</p>
+                    <p class='cantidad'>Cantidad: ${childData.cantidad}</p>
+                    <p class='precio'>\$${childData.precio}</p>
+                    <button class='boton-comprar'>Comprar</button>
+                    </div>
+                `;
+                
+            }
+            
+            
+        });
+    },
+    
+    {
+        onlyOnce: true,
+}
+);
+
+} 
+
+function mostrarMemoria(){
+    const dbRef = ref(db, "productos");
+    
+    document.getElementById('tituloProductos').innerHTML = "Memorias RAM";
+
+    onValue(dbRef,(snapshot) => {
+        productos.innerHTML = "";
+        snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+            
+            
+            if(childData.categoria==5){
+                productos.innerHTML +=`
+                    <div class='producto'>
+                    <img class='img-item' src='${childData.urlImagen}'>
+                    <p class='nombre'>${childData.nombre}</p>
+                    <p class='descripcion' style='font-size: .9em;'>${childData.descripcion}</p>
+                    <p class='cantidad'>Cantidad: ${childData.cantidad}</p>
+                    <p class='precio'>\$${childData.precio}</p>
+                    <button class='boton-comprar'>Comprar</button>
+                    </div>
+                `;
+                
+            }
+            
+            
+        });
+    },
+    
+    {
+        onlyOnce: true,
+    }
+    );
+    
+} 
+
+function mostrarTodos(){
+    const dbRef = ref(db, "productos");
+
+    document.getElementById('tituloProductos').innerHTML = "";
+
+    onValue(dbRef,(snapshot) => {
+        productos.innerHTML = "";
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const childData = childSnapshot.val();
+        
+        if(childData.estatus=="1"){
+            productos.innerHTML +=`
+                <div class='producto'>
+                <img class='img-item' src='${childData.urlImagen}'>
+                <p class='nombre'>${childData.nombre}</p>
+                <p class='descripcion' style='font-size: .9em;'>${childData.descripcion}</p>
+                <p class='cantidad'>Cantidad: ${childData.cantidad}</p>
+                <p class='precio'>\$${childData.precio}</p>
+                <button class='boton-comprar'>Comprar</button>
+                </div>
+            `;
+        }
+        
+        });
+    },
+    {
+        onlyOnce: true,
+    }
+    );
+}
+
+tarjetaG.addEventListener('click', mostrarTarjetasGraficas);
+gabinete.addEventListener('click', mostrarGabinetes);
+proc.addEventListener('click', mostrarProcesadores);
+tarjetaM.addEventListener('click', mostrarTarjetasMadre);
+memoria.addEventListener('click', mostrarMemoria);
+todos.addEventListener('click', mostrarTodos);
+
+

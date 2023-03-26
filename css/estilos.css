@@ -1133,3 +1133,34 @@ footer {
     background-color: yellow;
     cursor: pointer;
 }
+
+.dropdown-menu a {
+    cursor: pointer;
+}
+
+#categorias{
+    margin: 6rem 0 3rem 2rem;
+    list-style: none;
+}
+
+#categorias__texto {
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    border: 2px solid rgb(133, 133, 133);
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: #f4f4f4;
+}
+
+#categorias a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#tituloProductos {
+    margin-bottom: 6rem; 
+    font-size: 2em; 
+    text-align: center;
+    font-weight: bold;
+}
+
