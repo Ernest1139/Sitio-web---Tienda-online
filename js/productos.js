@@ -281,5 +281,3 @@ proc.addEventListener('click', mostrarProcesadores);
 tarjetaM.addEventListener('click', mostrarTarjetasMadre);
 memoria.addEventListener('click', mostrarMemoria);
 todos.addEventListener('click', mostrarTodos);
-
-

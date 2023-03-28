@@ -646,7 +646,17 @@ footer {
     }
 }
 
+
 @media (min-width: 1140px) {
+    #contenido-productos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2em;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1320px) {
     #contenido-productos {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -1233,5 +1243,104 @@ footer {
     font-size: 2em; 
     text-align: center;
     font-weight: bold;
+}
+
+/* Devoluciones */
+#devoluciones {
+    width: min( 80rem, 100% );
+    display: inline-block;
+}
+
+
+@media (min-width: 768px) {
+    #devoluciones {
+        margin: 4rem auto 10rem auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.campoDevolucion {
+    margin: 1rem 1rem 0 1rem;
+}
+
+.campoDevolucion label {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.campoDevolucion input {
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: rgb(249, 249, 249);
+    margin-top: .4rem;
+    height: 2.5rem;
+    padding-left: .4rem;
+}
+
+.campoDevolucion input:focus{
+    outline: none;
+}
+
+.campoDevolucion textarea {
+    width: 100%;
+    border-radius: .2rem;
+    height: 8rem;
+    padding: .2rem 0 0 .4rem;
+}
+
+.campoDevolucion select {
+    width: 100%;
+    margin-top: .4rem;
+    height: 2.5rem;
+    padding-left: .4rem;
+}
+
+.campoDevolucion:nth-child(3) {
+    grid-column: 1 / 3;
+}
+
+.campoDevolucion:nth-child(4) {
+    grid-column: 1 / 3;
+}
+
+.campoDevolucion:nth-child(5) {
+    grid-column: 1 / 3;
+}
+
+.campoDevolucion:nth-child(6) {
+    grid-column: 1 / 3;
+}
+
+.campoDevolucion:nth-child(7) {
+    grid-column: 1 / 3;
+}
+
+#contenido-btnSubmit {
+    margin: 2rem 0 0 0;
+    
+}
+
+#btn-submit {
+    background-color: rgb(72, 79, 163);
+    padding: .8rem;
+    border-radius: .5rem;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+#btn-submit:hover {
+    cursor: pointer;
+    background-color: rgb(85, 92, 174);
+}
+
+#btn-submit:active {
+    transform: scale(0.98);
 }
 
