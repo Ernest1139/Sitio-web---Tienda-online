@@ -64,9 +64,9 @@ if(btnCerrarSesion){
 onAuthStateChanged(auth, async user => {
     console.log(window.location.pathname);
     if (user) {
-        if (window.location.pathname.includes("login")) {
-            window.location.href = "/html/administrador.html";
-        }
+        // if (window.location.pathname.includes("login")) {
+        //     window.location.href = "/html/administrador.html";
+        // }
     } else {
         if (window.location.pathname.includes("administrador")) {
             window.location.href = "/html/login.html";
