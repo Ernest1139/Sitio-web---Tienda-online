@@ -89,22 +89,44 @@ function modificar() {
     if(nombre == "" || descripcion == "" || codigo == "" || precio == "" || urlImagen == "" || estatus == "" || categoria == 0 || cantidad == 0){
         alert("Complete los campos");
     }else {
-        update(ref(db, "productos/" + codigo), {
-        nombre:nombre,
-        precio:precio,
-        descripcion:descripcion,
-        cantidad:cantidad,
-        estatus:estatus,
-        categoria:categoria,
-        urlImagen:urlImagen,
+        const dbref = ref(db);
+        get(child(dbref, "productos/" + codigo))
+        .then((snapshot) => {
+        if (snapshot.exists()) {
+            update(ref(db, "productos/" + codigo), {
+                nombre:nombre,
+                precio:precio,
+                descripcion:descripcion,
+                cantidad:cantidad,
+                estatus:estatus,
+                categoria:categoria,
+                urlImagen:urlImagen,
+            }).then(() => {
+                alert("El registro se modifico");
+                mostrarProductos();
+            }).catch((error) => {
+                alert("No se pudo modificar -> " + error);
+            });
+        } else {
+            alert("Código inexistente, favor de colocar uno existente.");
+        }
     })
-        .then(() => {
-            alert("El registro se modifico");
-        mostrarProductos();
-        })
-        .catch((error) => {
-            alert("No se pudo modificar -> " + error);
-        });
+    //     update(ref(db, "productos/" + codigo), {
+    //     nombre:nombre,
+    //     precio:precio,
+    //     descripcion:descripcion,
+    //     cantidad:cantidad,
+    //     estatus:estatus,
+    //     categoria:categoria,
+    //     urlImagen:urlImagen,
+    // })
+        // .then(() => {
+        //     alert("El registro se modifico");
+        //     mostrarProductos();
+        // })
+        // .catch((error) => {
+        //     alert("No se pudo modificar -> " + error);
+        // });
     }
 }
 
