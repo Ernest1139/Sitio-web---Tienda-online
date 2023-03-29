@@ -50,7 +50,7 @@ function insertar() {
     event.preventDefault();
     leer();
     const dbref = ref(db);
-    if(nombre == "" || descripcion == "" || codigo == "" || precio == "" || urlImagen == "" || estatus == "" || categoria == 0 || cantidad == 0){
+    if(nombre == "" || descripcion == "" || codigo == "" || precio == "" || urlImagen == "" || estatus == "" || categoria == 0 || cantidad == ""){
         alert("Complete los campos");
     }else{
       //Validación para que no se repita el producto
@@ -86,7 +86,7 @@ function insertar() {
 function modificar() {
     event.preventDefault();
     leer();
-    if(nombre == "" || descripcion == "" || codigo == "" || precio == "" || urlImagen == "" || estatus == "" || categoria == 0 || cantidad == 0){
+    if(nombre == "" || descripcion == "" || codigo == "" || precio == "" || urlImagen == "" || estatus == "" || categoria == 0 || cantidad == ""){
         alert("Complete los campos");
     }else {
         const dbref = ref(db);
@@ -165,17 +165,33 @@ function deshabilitar() {
     if(codigo =="" ){
         alert("Introduce un código");
     }else {
-        update(ref(db, "productos/" + codigo), {
-        estatus:0
+        const dbref = ref(db);
+        get(child(dbref, "productos/" + codigo))
+        .then((snapshot) => {
+        if (snapshot.exists()) {
+            update(ref(db, "productos/" + codigo), {
+                estatus:0
+            }).then(() => {
+                alert("El registro se deshabilitó");
+                mostrarProductos();
+            }).catch((error) => {
+                alert("No se pudo modificar -> " + error);
+            });
+        } else {
+            alert("No se pudo deshabilitar, favor de poner un código existente");
+        }
     })
-    .then(() => {
-        alert("El Producto ha sido deshabilitado");
-        mostrarProductos();
-        })
-        .catch((error) => {
-        alert("No se pudo actualizar -> " + error);
-        });
+        // update(ref(db, "productos/" + codigo), {
+        // estatus:0
     }
+    // .then(() => {
+    //     alert("El Producto ha sido deshabilitado");
+    //     mostrarProductos();
+    //     })
+    //     .catch((error) => {
+    //     alert("No se pudo actualizar -> " + error);
+    //     });
+    // }
 }
 
 async function cargarImagen(){
