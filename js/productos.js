@@ -246,7 +246,7 @@ function mostrarMemoria(){
 function mostrarTodos(){
     const dbRef = ref(db, "productos");
 
-    document.getElementById('tituloProductos').innerHTML = "";
+    document.getElementById('tituloProductos').innerHTML = "Nuestros Productos";
 
     onValue(dbRef,(snapshot) => {
         productos.innerHTML = "";

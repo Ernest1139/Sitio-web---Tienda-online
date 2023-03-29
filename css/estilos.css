@@ -84,6 +84,8 @@ h3 {
 }
 
 #encabezado-login h1 {
+    margin: 0;
+    padding-top: 0.25rem;
     text-align: center;
     font-size: 3rem;
     font-weight: 700;
