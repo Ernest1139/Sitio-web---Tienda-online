@@ -48,7 +48,7 @@ function mostrarProductos(){
                 <p class='descripcion' style='font-size: .9em;'>${childData.descripcion}</p>
                 <p class='cantidad'>Cantidad: ${childData.cantidad}</p>
                 <p class='precio'>\$${childData.precio}</p>
-                <button class='boton-comprar'>Comprar</button>
+                <button class='boton-comprar' data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Comprar</button>
                 </div>
             `;
         }

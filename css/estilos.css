@@ -625,7 +625,14 @@ footer {
 
 /* Productos */
 #productos {
-    margin: 2em 0 6em 0;
+    margin: 2em auto 6em auto;
+    width: min(105rem, 100%);
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#productos th {
+    padding: .8rem;
 }
 
 #productos h3 {
