@@ -74,7 +74,7 @@ function mostrarTarjetasGraficas(){
             const childData = childSnapshot.val();
             
             
-            if(childData.categoria==1){
+            if(childData.categoria==1 && childData.estatus=="1"){
                 productos.innerHTML +=`
                     <div class='producto'>
                     <img class='img-item' src='${childData.urlImagen}'>
@@ -110,7 +110,7 @@ function mostrarGabinetes(){
                 const childData = childSnapshot.val();
                 
                 
-                if(childData.categoria==2){
+                if(childData.categoria==2 && childData.estatus=="1"){
                     productos.innerHTML +=`
                         <div class='producto'>
                         <img class='img-item' src='${childData.urlImagen}'>
@@ -146,7 +146,7 @@ function mostrarProcesadores(){
             const childData = childSnapshot.val();
             
 
-                if(childData.categoria==3){
+                if(childData.categoria==3 && childData.estatus=="1"){
                     productos.innerHTML +=`
                         <div class='producto'>
                         <img class='img-item' src='${childData.urlImagen}'>
@@ -182,7 +182,7 @@ function mostrarTarjetasMadre(){
             const childData = childSnapshot.val();
             
             
-            if(childData.categoria==4){
+            if(childData.categoria==4 && childData.estatus=="1"){
                 productos.innerHTML +=`
                     <div class='producto'>
                     <img class='img-item' src='${childData.urlImagen}'>
@@ -218,7 +218,7 @@ function mostrarMemoria(){
             const childData = childSnapshot.val();
             
             
-            if(childData.categoria==5){
+            if(childData.categoria==5 && childData.estatus=="1"){
                 productos.innerHTML +=`
                     <div class='producto'>
                     <img class='img-item' src='${childData.urlImagen}'>
